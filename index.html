@@ -3,215 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Golden Dragon - Authentic Chinese Cuisine</title>
+    <title>The Windsy Wok - Authentic Chinese Cuisine</title>
+    <!-- Styling updated for a traditional and inviting Chinese restaurant theme (Red, Gold, Black) -->
     <style>
-        /* Basic CSS for layout and readability */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f0f8ff; 
-            color: #333;
+        :root {
+            --primary-color: blue; /* Deep Chinese blue */
+            --secondary-color: black; /* white */
+            --light-bg: #f9f9f9; /* Off-White/Rice Paper Background */
+            --text-color: #333;
         }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 20px;
         }
+
+        /* Exercise 5: Header with Logo and Navigation */
         header {
-            background-color: #4CAF50; 
+            background-color: blue;
             color: white;
-            padding: 15px 0;
-            text-align: center;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        header h1 {
+        header h1 { 
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 span {
+            color: var(--blue);
         }
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 10px 0 0;
+            margin: 0;
             display: flex;
-            justify-content: center;
+            gap: 25px;
         }
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
+        /* Section Styling */
         section {
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-        }
-        section h2 {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        .food-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .food-item {
-            text-align: center;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .food-item img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        .video-item {
-            text-align: center;
-            padding: 20px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #4CAF50; /* Bonus: inline CSS border for table */
-        }
-        th, td {
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 12px;
+            background-color: white;
             border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
         }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        footer {
-            background-color: #333;
-            color: white;
+
+        h2 { 
+            color: var(--primary-color); 
+            font-size: 2.2em; 
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
             text-align: center;
-            padding: 20px;
-            margin-top: 20px;
         }
-        .recipe-section img {
+
+        /* Main Content Layout */
+        .hero-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .hero-text {
+            flex: 1 1 50%; 
+        }
+        .hero-visual {
+            flex: 1 1 40%; 
+            /* Added padding to the visual side to match the text side */
+            padding-top: 20px; 
+        }
+        
+        /* Image and Video */
+        figure { 
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 15px auto;
             border-radius: 8px;
+            border: 4px solid var(--secondary-color);
+            margin-top: 20px;
+        }
+        figure img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px 4px 0 0;
+        }
+        figure figcaption {
+            padding: 10px;
+            background-color: var(--light-bg);
+            text-align: center;
+            border-radius: 0 0 4px 4px;
+            color: var(--text-color);
+        }
+
+
+        /* Responsive Iframe Container for 16:9 aspect ratio */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (315/560) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 4px solid var(--secondary-color);
+            margin-top: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove iframe default border */
+        }
+        
+        /* Table Styling (Exercise 3: Menu Table) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            /* Bonus: Border styling */
+            border: 2px solid var(--primary-color);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        caption {
+            font-weight: bold;
+            padding: 10px 0;
+            color: var(--primary-color);
+            font-size: 1.3em;
+        }
+
+        /* List Styling (Exercise 1: Signature Dishes) */
+        #offerings-list ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        #offerings-list li {
+            background-color: white(--secondary-color);
+            color: black(--primary-color);
+            padding: 15px;
+            border-right: 6px solid var(--primary-color);
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styling (Exercise 5) */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            .hero-content {
+                flex-direction: column;
+            }
+            section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Exercise 5: Use <header> with a logo and navigation links -->
     <header>
-        <div class="container">
-            <h1>The Golden Dragon</h1>
-            <p>Authentic Chinese Cuisine for the Modern Palate</p>
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#specials">Specials</a></li>
-                    <li><a href="#delivery">Order Now</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="https://github.com/your-restaurant-profile" target="_blank">Our Story</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- <h1> heading (Exercise 1) -->
+        <h1><span style="color: black;">🔥 The Windsy Wok</span></h1>
+        
+        <!-- Semantic Tag: <nav> -->
+        <nav>
+            <ul>
+                <li><a href="#hero">Welcome</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#offerings">Specials</a></li>
+                <!-- Exercise 2: Clickable link to a reservation system -->
+                <li><a href="https://reservations.com/dragonswok" target="_blank">Book A Table</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container">
-        <main>
-            
-          
-            <article class="recipe-section">
-    <h2>Behind Our Famous Wonton Soup</h2>
-     <img 
-           src="https://images.unsplash.com/photo-1597305877032-0668e8a4c34a?q=80&w=800&auto=format&fit=crop" 
-           alt="A steaming bowl of traditional Chinese Wonton Soup with fresh greens and shrimp dumplings.">
-      <p>Discover the secrets to our beloved Wonton Soup. From hand-folding delicate wrappers to simmering a rich, flavorful broth with fresh pork and shrimp fillings, every step is a testament to traditional Chinese cooking.</p>
-  </article>
+    <!-- Exercise 5: Use <main> -->
+    <main>
+        
+        <!-- Exercise 5: Use <section> for welcome message and media -->
+        <section id="hero">
+            <h2>Experience Authentic Cantonese Flavor</h2>
 
-
-            <section class="video-gallery">
-                <h2>Watch Our Chef's Tutorial</h2>
-                
-                <div class="video-item">
-                    <p>Learn the secrets to perfectly preparing **authentic Chinese Wontons** with this step-by-step guide from our chefs.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <!-- <p> paragraph (Exercise 1) - Welcome message -->
+                    <p>
+                        Welcome to **The Dragon's Wok**, where tradition meets taste. We pride ourselves on serving classic Cantonese and Szechuan cuisine, prepared fresh daily using time-honored techniques and the highest quality ingredients. Join us for a culinary journey through China's most beloved regional dishes.
+                    </p>
                     
-                    <iframe 
-                        width="500px" 
-                        height="281px" 
-                        src="https://www.youtube.com/embed/R57hSkeVNG8?si=jD8j6pjszcEAtzUX" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
+                    <!-- Exercise 4: Video Tutorial/Cooking Demonstration (YouTube Embed) -->
+                    <h3>Behind the Flames: Wok Master at Work</h3>
+                    
+                    <!-- Paragraph explaining the video content -->
+                    <p>
+                        Watch our Head Chef demonstrate the "Wok Hey" technique—the intense heat and speed required to achieve the smoky, caramelized flavor that defines authentic stir-fry.
+                    </p>
+
+        
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/u9nry4Psey4?si=o9iynYe4QEsmwJQU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </section>
+            <!-- YouTube iframe embed code -->
+                <div class="hero-visual">
+                    <!-- Image reverted to a generic restaurant ambiance placeholder -->
+                    <figure>
+                        <img 
+                            src "https://share.google/images/kH0biAbGYHgps4dwd" 
+                            alt="Interior ambiance of The Dragon's Wok restaurant with traditional Chinese lanterns and decor." 
+                            width="500"
+                        >
+                        <figcaption style="color: var(--primary-color);">Authentic dining experience in our beautifully decorated dining hall.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
 
-            <section id="menu" class="menu-table">
-                <h2>Our Signature Dishes</h2>
-                <table>
-                    <caption>Authentic Chinese Main Courses</caption>
-                    <thead>
-                        <tr>
-                            <th>Dish Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Chef's Rating (out of 5)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Kung Pao Chicken</td>
-                            <td>Poultry</td>
-                            <td>$14.99</td>
-                            <td>4.7</td>
-                        </tr>
-                        <tr>
-                            <td>Beef with Broccoli</td>
-                            <td>Beef</td>
-                            <td>$15.99</td>
-                            <td>4.5</td>
-                        </tr>
-                        <tr>
-                            <td>Vegetable Fried Rice</td>
-                            <td>Rice & Noodles</td>
-                            <td>$10.99</td>
-                            <td>4.2</td>
-                        </tr>
-                        </tbody>
-                </table>
-            </section>
+        <!-- Exercise 5: Use <section> for features (using table) -->
+        <section id="menu">
+            <h2>Popular Favorites</h2>
 
-        </main>
-    </div>
+            <!-- Table content (Exercise 3: Menu Table) -->
+            <table>
+                <!-- Caption for the table (Bonus) -->
+                <caption>Top-Rated Dishes from Our Full Menu</caption>
+                
+                <thead>
+                    <tr>
+                        <!-- Table header cells (<th>) -->
+                        <th>Dish Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Customer Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- Prices in Ksh -->
+                        <td>Peking Duck (Half)</td>
+                        <td>Crispy skin, tender meat, served with pancakes and hoisin sauce.</td>
+                        <td>Ksh 4,500</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <!-- Prices in Ksh -->
+                        <td>Spicy Dan Dan Noodles</td>
+                        <td>Szechuan-style noodles tossed in chili oil and minced pork.</td>
+                        <td>Ksh 1,800</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <!-- Prices in Ksh -->
+                        <td>General Tso's Chicken</td>
+                        <td>Deep-fried chicken pieces in a sweet, slightly spicy glaze.</td>
+                        <td>Ksh 2,200</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Exercise 5: Use <section> for features (using list) -->
+        <section id="offerings">
+            <!-- <h2> subheading (Exercise 1) -->
+            <h2>Our Signature Services</h2> 
+            
+            <!-- Unordered list (<ul>) of features/services (Exercise 1) -->
+            <ul id="offerings-list">
+                <li>Daily Lunch Specials </li>
+                <li>Private Banquet Hall for Events </li>
+                <li>Full-Service Catering for Weddings and Corporate Events</li>
+                <li>Exclusive Chef's Tasting Menu (Reservations Required)</li>
+                <li>Express Takeout and Delivery Options</li>
+            </ul>
+        </section>
+    </main>
 
+    <!-- Exercise 5: Use <footer> with contact info and copyright -->
     <footer>
-        <div class="container">
-            <p>The Golden Dragon - Authentic Chinese Cuisine</p>
-            <p>123 Panda Way, Chinatown, CA | <a href="tel:+1234567890">(123) 456-7890</a> | <a href="mailto:info@goldendragon.com">info@goldendragon.com</a></p>
-            <p>&copy; 2023 The Golden Dragon. All rights reserved.</p>
-        </div>
+        <p>The Dragon's Wok | Main Street, Anytown, CA | Open Daily </p>
+        <p>&copy; 2025 The Dragon's Wok. All rights reserved. | <a href="mailto:info@dragonswok.com">Contact Us</a></p>
     </footer>
 
 </body>
 </html>
-
-
-
-
-
-
 
 
 
