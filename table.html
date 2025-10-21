@@ -3,61 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colored Tables Assignment</title>
-<style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background-color: white;
-        margin: 20px;
-    }
-
-    h1 {
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 60%;
-        margin-bottom: 40px;
-    }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: center;
-    }
-
-    /* TABLE 1 COLORS */
-    .table1 th {
-        background-color: blue;
-        color: orange;
-    }
-
-    .table1 tr:nth-child(even) {
-        background-color: #a7edf1;
-    }
-
-    .table1 tr:nth-child(odd) {
-        background-color: #4b8cd6;
-        color: white;
-    }
-
-    /* TABLE 2 COLORS */
-    .table2 th {
-        background-color: #0077d9;
-        color: white;
-    }
-
-    .table2 tr:nth-child(even) {
-        background-color: #d6e7ff;
-    }
-
-    .table2 tr:nth-child(odd) {
-        background-color: #b3d5f9;
-    }
-
-</style>
+<title>External CSS Tables Assignment</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -71,21 +18,21 @@
         <th>Remarks</th>
     </tr>
     <tr>
-        <td>Pears</td>
+        <td>Apples</td>
         <td>KES 20</td>
         <td>10</td>
         <td>KES 200</td>
         <td>Fresh</td>
     </tr>
     <tr>
-        <td>Mangoes</td>
+        <td>Oranges</td>
         <td>KES 60</td>
         <td>8</td>
         <td>KES 480</td>
         <td>Sweet</td>
     </tr>
     <tr>
-        <td>Dragon fruit</td>
+        <td>Bananas</td>
         <td>KES 30</td>
         <td>12</td>
         <td>KES 360</td>
@@ -96,7 +43,7 @@
 <h1>Table 2</h1>
 <table class="table2">
     <tr>
-        <th>Farm</th>
+        <th style="color:red">Farm</th>
         <th>Location</th>
         <th>Contacts</th>
         <th>Products</th>
@@ -113,18 +60,17 @@
         <td>James</td>
         <td>Machakos</td>
         <td>0721567654</td>
-        <td>Dragon fruit</td>
+        <td>Oranges</td>
         <td>Available</td>
     </tr>
     <tr>
         <td>Marys</td>
         <td>Kisii</td>
         <td>0727123456</td>
-        <td>Pears</td>
+        <td>Avocado</td>
         <td>Seasonal</td>
     </tr>
 </table>
 
 </body>
 </html>
-
